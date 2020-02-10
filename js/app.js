@@ -1,5 +1,7 @@
 //grid classes approach
 
+
+
 class Grid {
 	constructor(level){
 		this.hiddenBlocks = [];
@@ -12,6 +14,8 @@ class Grid {
 	setupGrid() {
 		this.generatePattern()
 		this.fillGrid()
+		this.addEventListeners()
+		this.displayGrid()
 	}
 	//generate rand numbers to fill hiddenBlocks array - w/o duplicates
 	generatePattern () {
@@ -33,15 +37,28 @@ class Grid {
 			this.matrix[element] = 1
 		})
 	}
+	//add event listeners to each block
+	addEventListeners() {
+		console.log("Event Listeners Added")
+	}
 
+	displayGrid() {
+		console.log("displaying grid")
+		console.log(this.matrix)
+	}
 }
+
+//creating grid on html
+
+
 
 
 
 //create grid
 const grid = new Grid(0)
 grid.setupGrid()
+// alert()
 // grid.generatePattern()
-console.log(grid)
+// console.log(grid)
 
 // console.log(grid.matrix)
