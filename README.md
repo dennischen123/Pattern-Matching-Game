@@ -1,7 +1,7 @@
 # Pattern-Matching-game
 ## About Game
 
-"**Spatial Memory(https://en.wikipedia.org/wiki/Spatial_memory)** is a form of memory responsible for the recording of information about one's environment and spatial orientation"
+"**[Spatial Memory](https://en.wikipedia.org/wiki/Spatial_memory)** is a form of memory responsible for the recording of information about one's environment and spatial orientation"
 
 Test your Spatial memory with this pattern matching game.
 
