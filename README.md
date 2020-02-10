@@ -1,9 +1,9 @@
 # Pattern-Matching-game
-##About Game
+## About Game
 Test your Spatial memory with this pattern matching game.
 "Spatial Memory is a form of memory responsible for the recording of information about one's environment and spatial orientation"
 
-##How to Play
+## How to Play
 1. Click start button to begin the game.
 
 2. Memorize Blocks that are revealed at the beggining of each round.
