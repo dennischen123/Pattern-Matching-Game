@@ -7,7 +7,7 @@ class Grid {
 		this.currentCorrect = 0;
 		this.hiddenBlocks = [];
 		this.level = level;
-		this.complexity = [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+		this.complexity = [3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15];
 		this.patternSize = this.complexity[this.level];
 		this.matrix = new Array(this.patternSize * this.patternSize);
 	}
@@ -40,7 +40,8 @@ class Grid {
 	}
 	//add event listeners to each block
 	addEventListeners() {
-		console.log("Event Listeners Added")
+		console.log("test")
+		// document.querySelector('button'.addEventListner('click', startGame))
 	}
 
 	displayGrid() {
@@ -50,21 +51,7 @@ class Grid {
 }
 
 
-
-//create grid
-let grid = new Grid(0)
-grid.setupGrid()
-// alert()
-// grid.generatePattern()
-console.log(grid)
-
-// console.log(grid.matrix)
-
-
-
-
 //creating grid on ui
-
 const generateUiGrid = () => {
 	
 	document.querySelector('h2').innerHTML = `Round ${grid.level+1}`
@@ -89,6 +76,10 @@ const generateUiGrid = () => {
 		}
 	table.appendChild(row)
 	}
+	revealHidden(1)
+	setTimeout(function() {
+		revealHidden(0)
+	}, 2000)
 }
 
 // Correct Block or not Logic
@@ -121,5 +112,34 @@ const reset = (level, status) => {
 	document.querySelector('table').remove()
 	generateUiGrid()
 }
+
+//1 = reveal, 0 = hide 
+const revealHidden = (status) => {
+
+	if (status)
+ 		for (let i = 0; i < grid.hiddenBlocks.length; i++) {
+ 			document.querySelectorAll('td')[grid.hiddenBlocks[i]].style.backgroundColor = "green"
+ 		} else {
+ 		for (let i = 0; i < grid.hiddenBlocks.length; i++) {
+			document.querySelectorAll('td')[grid.hiddenBlocks[i]].style.backgroundColor = "goldenrod"
+ 		}
+	}
+}
+
+// document.querySelector('button').addEventListener()
+//create grid
+// const startGame = () => {
+// 	var grid = new Grid(0)
+// 	grid.setupGrid()
+// 	generateUiGrid
+// }
+
+
+let grid = new Grid(0)
+grid.setupGrid()
+// alert()
+// grid.generatePattern()
+// console.log(grid)
 generateUiGrid()
 
+// console.log(grid.matrix)
