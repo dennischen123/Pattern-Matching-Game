@@ -38,15 +38,16 @@ h2 {
 }
 
 footer {
- position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+	position: fixed;
+  	bottom: 0;
+  	width: 100%;
+  	text-align: center;
+  	color: white;
 }
 
 
 .trackin {
-	animation: tracking-in-expand 2s 1;
+	animation: tracking-in-expand 1.2s 1;
 }
 
 @-webkit-keyframes tracking-in-expand {

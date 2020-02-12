@@ -43,40 +43,40 @@ class Grid {
 	}
 	//add event listeners to each block
 	addEventListeners() {
-		document.querySelector('button').addEventListener('click', revealAndHide)
+		if (this.level === 0)
+			document.querySelector('button').addEventListener('click', revealAndHide)
 	}
 	//creating grid on ui
 	generateUiGrid() {
-	
-	document.querySelector('h2').innerHTML = `Round ${grid.level+1}`
-	const main = document.querySelector("main")
-	const table = document.createElement("table")
-	table.setAttribute('align', "center")
-	
-	main.appendChild(table)
+		document.querySelector('h2').innerHTML = `Round ${grid.level+1}`
+		const main = document.querySelector("main")
+		const table = document.createElement("table")
+		table.setAttribute('align', "center")
+		
+		main.appendChild(table)
 
-	//nested for loop to create tr and td and set id corresponding
-	//to location of block
-	for (let i = 0; i < grid.patternSize; i++) {
-		let row = document.createElement('tr')
-		for (let j = 0; j < grid.patternSize; j++) {
-			let block = document.createElement('td')
-			block.setAttribute('id', i * grid.patternSize + j)
-			block.innerHTML = i * grid.patternSize + j
+		//nested for loop to create tr and td and set id corresponding
+		//to location of block
+		for (let i = 0; i < grid.patternSize; i++) {
+			let row = document.createElement('tr')
+			for (let j = 0; j < grid.patternSize; j++) {
+				let block = document.createElement('td')
+				block.setAttribute('id', i * grid.patternSize + j)
+				// block.innerHTML = i * grid.patternSize + j
 
-			// adding event listener to each block in grid
-			block.addEventListener('click', isCorrect)
-			row.appendChild(block)
+				// adding event listener to each block in grid
+				block.addEventListener('click', isCorrect)
+				row.appendChild(block)
+			}
+			table.appendChild(row)
 		}
-		table.appendChild(row)
+		//auto reveal after first round
+		if (grid.level > 0) {
+			setTimeout(function () {
+				revealAndHide()
+			}, 1700)
+		}
 	}
-	if (grid.level > 0) {
-		setTimeout(function () {
-			revealAndHide()
-		}, 1700)
-	}
-}
-
 	displayGrid() {
 		console.log("displaying grid")
 		console.log(this.matrix)
@@ -143,6 +143,7 @@ const revealAndHide = () => {
 	revealHidden(1)
 	setTimeout(function() {
 		revealHidden(0)
+		document.querySelector('button').removeEventListener('click',revealAndHide)
 	}, 1500)
 }
 
