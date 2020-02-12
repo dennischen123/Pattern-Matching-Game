@@ -16,6 +16,9 @@ class Grid {
 		this.generatePattern()
 		this.fillGrid()
 		this.addEventListeners()
+		this.generateUiGrid()
+
+		//for testing
 		this.displayGrid()
 	}
 	//generate rand numbers to fill hiddenBlocks array - w/o duplicates
@@ -40,19 +43,10 @@ class Grid {
 	}
 	//add event listeners to each block
 	addEventListeners() {
-		console.log("test")
-		// document.querySelector('button'.addEventListner('click', startGame))
+		document.querySelector('button').addEventListener('click', revealAndHide)
 	}
-
-	displayGrid() {
-		console.log("displaying grid")
-		console.log(this.matrix)
-	}
-}
-
-
-//creating grid on ui
-const generateUiGrid = () => {
+	//creating grid on ui
+	generateUiGrid() {
 	
 	document.querySelector('h2').innerHTML = `Round ${grid.level+1}`
 	const main = document.querySelector("main")
@@ -72,15 +66,25 @@ const generateUiGrid = () => {
 
 			// adding event listener to each block in grid
 			block.addEventListener('click', isCorrect)
-		row.appendChild(block)
+			row.appendChild(block)
 		}
-	table.appendChild(row)
+		table.appendChild(row)
 	}
-	revealHidden(1)
-	setTimeout(function() {
-		revealHidden(0)
-	}, 2000)
+	if (grid.level > 0) {
+		setTimeout(function () {
+			revealAndHide()
+		}, 1700)
+	}
 }
+
+	displayGrid() {
+		console.log("displaying grid")
+		console.log(this.matrix)
+	}
+}
+
+
+
 
 // Correct Block or not Logic
 const isCorrect = (event) => {
@@ -99,11 +103,20 @@ const isCorrect = (event) => {
 	}
 }
 
-const reset = (level, status) => {
-	if (status)
-		alert("Level up")
+
+//true or 1 = level up,   false or 0 = gameover
+const reset = (level, mode) => {
+	if (mode) {
+		// alert("Level up")
+		let header = document.querySelector('header')
+		document.querySelector('h2').remove()
+		header.appendChild(document.createElement('h2'))
+		document.querySelector('h2').setAttribute('class','trackin')
+
+	}
 	else
 		alert("You Lose")
+	setTimeout(function (){;},1000)
 	grid = new Grid(level)
 	grid.setupGrid()
 
@@ -114,9 +127,9 @@ const reset = (level, status) => {
 }
 
 //1 = reveal, 0 = hide 
-const revealHidden = (status) => {
+const revealHidden = (mode) => {
 
-	if (status)
+	if (mode)
  		for (let i = 0; i < grid.hiddenBlocks.length; i++) {
  			document.querySelectorAll('td')[grid.hiddenBlocks[i]].style.backgroundColor = "green"
  		} else {
@@ -126,20 +139,17 @@ const revealHidden = (status) => {
 	}
 }
 
-// document.querySelector('button').addEventListener()
-//create grid
-// const startGame = () => {
-// 	var grid = new Grid(0)
-// 	grid.setupGrid()
-// 	generateUiGrid
-// }
+const revealAndHide = () => {
+	revealHidden(1)
+	setTimeout(function() {
+		revealHidden(0)
+	}, 1500)
+}
+
+
 
 
 let grid = new Grid(0)
 grid.setupGrid()
-// alert()
-// grid.generatePattern()
-// console.log(grid)
-generateUiGrid()
+// generateUiGrid()
 
-// console.log(grid.matrix)

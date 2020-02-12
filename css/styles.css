@@ -1,10 +1,59 @@
 body {
 	text-align: center;
+	background-color: #0a87b7;
+
+	/*background-image: url("https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&h=750&w=1260");*/
+	/*animation: bg-pan-bottom 5s infinite;*/
+	/*background-height:100%;*/
+	background-size: cover;
+	/*background-repeat: no-repeat;*/
+	background-position: center;
 }
+
 td {
+	opacity:90%;
 	border: solid black 2px;
 	/*size: 50px;*/
-	width: 50px;
-	height: 50px;
+	width: 10vh;
+	height: 10vh;
 	background-color: goldenrod;
 }
+
+button {
+	margin-top: 25px;
+	background-color: goldenrod;
+	border-radius: 8px;
+	border: 2px solid black;
+	padding: 10px 16px;
+}
+
+h1 {
+ color: white;
+ text-shadow: 2px 2px #0a87ff;
+}
+
+h2 {
+	color: white;
+	text-shadow: 2px 2px #0a87ff;
+}
+
+
+
+.trackin {
+	animation: tracking-in-expand 2s 1;
+}
+
+@-webkit-keyframes tracking-in-expand {
+	0%{letter-spacing:-.5em;opacity:0}
+	40%{opacity:.6}100%{opacity:1}
+}
+@keyframes tracking-in-expand {
+	0% {letter-spacing:-.5em;opacity:0}
+	40% {opacity:.6}
+	100% {opacity:1}
+}
+
+
+
+/*Animation Testing */
+
