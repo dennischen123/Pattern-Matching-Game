@@ -19,7 +19,7 @@ class Grid {
 		// generateUiGrid()
 
 		//for testing
-		this.displayGrid()
+		// this.displayGrid()
 	}
 	//generate rand numbers to fill hiddenBlocks array - w/o duplicates
 	generatePattern () {
@@ -93,9 +93,10 @@ const isCorrect = (event) => {
 	if (grid.matrix[index]) {
 		event.target.style.backgroundColor = "Green"
 		grid.currentCorrect++;
+		event.target.removeEventListener('click',isCorrect)
 		if (grid.currentCorrect == grid.patternSize){
 			grid.level++
-			console.log("win")
+			// console.log("win")
 			setTimeout(function () {reset(grid.level,1);}, 300)
 		}
 	} else {
@@ -113,19 +114,18 @@ const reset = (level, mode) => {
 		document.querySelector('h2').remove()
 		header.appendChild(document.createElement('h2'))
 		document.querySelector('h2').setAttribute('class','trackin')
+		setTimeout(function (){;},1000)
+		grid = new Grid(level)
+		grid.setupGrid()
 
+		console.log(grid)
+		
+		document.querySelector('table').remove()
+		generateUiGrid()
 	}
 	else{
-		alert("You Lose")
+		gameOver()
 	}
-	setTimeout(function (){;},1000)
-	grid = new Grid(level)
-	grid.setupGrid()
-
-	console.log(grid)
-	
-	document.querySelector('table').remove()
-	generateUiGrid()
 }
 
 //1 = reveal, 0 = hide 
@@ -150,15 +150,36 @@ const revealAndHide = () => {
 }
 
 
-// const addGameOver = () => {
-// 	let gameOver = document.createElement('p')
-// 	p.innerHTML = "Game Over"
-// 	p.setAttribute('class', 'blinking')
-// 	p.addClassList('gameover')
-// 	document.querySelector('button').appendAfter()
-// }
+const gameOver = () => {
+	let p = document.querySelector('p')
+	p.innerHTML = "Game Over"
+	p.setAttribute('class', 'blinking')
+	p.style.fontSize = "30px"
 
+	addRemoveEventListeners(0,isCorrect, 'td')
+	document.querySelector('button').addEventListener('click',function restart(){
+		reset(0,1)
+		p.innerHTML = ""
+		document.querySelector('button').removeEventListener('click',restart)
 
+	})
+}
+
+//add or remove a whole set of selectors passed in
+// mode = 1 => addEventListeners  mode = 0 => removeEventListners
+const addRemoveEventListeners = (mode, func, selector) => {
+	if (mode) {
+		let tags = document.querySelectorAll(selector)
+		tags.forEach(function(tag){
+			tag.addEventListener('click',func)
+		})
+	} else {
+		let tags = document.querySelectorAll(selector)
+		tags.forEach(function(tag){
+			tag.removeEventListener('click',func)
+		})
+	}
+}
 
 let grid = new Grid(0)
 grid.setupGrid()
