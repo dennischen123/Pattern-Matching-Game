@@ -16,7 +16,7 @@ class Grid {
 		this.generatePattern()
 		this.fillGrid()
 		this.addEventListeners()
-		this.generateUiGrid()
+		// generateUiGrid()
 
 		//for testing
 		this.displayGrid()
@@ -46,8 +46,16 @@ class Grid {
 		if (this.level === 0)
 			document.querySelector('button').addEventListener('click', revealAndHide)
 	}
-	//creating grid on ui
-	generateUiGrid() {
+
+	displayGrid() {
+		console.log("displaying grid")
+		console.log(this.matrix)
+	}
+}
+
+
+//creating grid on ui
+const generateUiGrid = () => {
 		document.querySelector('h2').innerHTML = `Round ${grid.level+1}`
 		const main = document.querySelector("main")
 		const table = document.createElement("table")
@@ -70,6 +78,7 @@ class Grid {
 			}
 			table.appendChild(row)
 		}
+		// main.addClassList('trackin')
 		//auto reveal after first round
 		if (grid.level > 0) {
 			setTimeout(function () {
@@ -77,14 +86,6 @@ class Grid {
 			}, 1700)
 		}
 	}
-	displayGrid() {
-		console.log("displaying grid")
-		console.log(this.matrix)
-	}
-}
-
-
-
 
 // Correct Block or not Logic
 const isCorrect = (event) => {
@@ -114,8 +115,9 @@ const reset = (level, mode) => {
 		document.querySelector('h2').setAttribute('class','trackin')
 
 	}
-	else
+	else{
 		alert("You Lose")
+	}
 	setTimeout(function (){;},1000)
 	grid = new Grid(level)
 	grid.setupGrid()
@@ -148,9 +150,17 @@ const revealAndHide = () => {
 }
 
 
+// const addGameOver = () => {
+// 	let gameOver = document.createElement('p')
+// 	p.innerHTML = "Game Over"
+// 	p.setAttribute('class', 'blinking')
+// 	p.addClassList('gameover')
+// 	document.querySelector('button').appendAfter()
+// }
+
 
 
 let grid = new Grid(0)
 grid.setupGrid()
-// generateUiGrid()
+generateUiGrid()
 
