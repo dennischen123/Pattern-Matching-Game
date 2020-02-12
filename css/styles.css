@@ -5,9 +5,9 @@ body {
 	/*background-image: url("https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&h=750&w=1260");*/
 	/*animation: bg-pan-bottom 5s infinite;*/
 	/*background-height:100%;*/
-	background-size: cover;
+	/*background-size: cover;*/
 	/*background-repeat: no-repeat;*/
-	background-position: center;
+	/*background-position: center;*/
 }
 
 td {
@@ -37,6 +37,12 @@ h2 {
 	text-shadow: 2px 2px #0a87ff;
 }
 
+footer {
+ position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
 
 
 .trackin {
