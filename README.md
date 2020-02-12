@@ -14,4 +14,4 @@ Test your Spatial memory with this pattern matching game.
 
 **4.** Grid size and complexity increases as you level up.
 
-**5.** Game ends if wrong block is clicked.
+**5.** Game ends if wrong block is clicked. 
