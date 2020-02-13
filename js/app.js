@@ -183,4 +183,3 @@ const addRemoveEventListeners = (mode, func, selector) => {
 let grid = new Grid(0)
 grid.setupGrid()
 generateUiGrid()
-
