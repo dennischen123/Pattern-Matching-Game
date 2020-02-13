@@ -4,30 +4,33 @@ body {
 }
 
 td {
-	opacity:90%;
+	/*opacity:90%;*/
 	border: solid black 2px;
-	width: 10vh;
-	height: 10vh;
+	width: 8vh;
+	height: 8vh;
 	background-color: goldenrod;
 }
 
 button {
 	margin-top: 25px;
 	background-color: goldenrod;
-	border-radius: 8px;
+	border-radius: 10px;
 	border: 2px solid black;
-	padding: 10px 16px;
+	/*padding: 10px 16px;*/
+	padding: 2vh 3vh;
 }
 
 h1 {
 	font-family: 'Odibee Sans', curssive;
  	color: white;
- 	font-size:40px;
+ 	/*font-size:40px;*/
+ 	font-size: 7vh;
  	text-shadow: 2px 2px #0a87ff;
  	letter-spacing: 2px;
 }
 
 h2 {
+	font-size: 4vh;
 	font-family: 'Sriracha', cursive;
 	color: white;
 }
