@@ -5,7 +5,11 @@
 
 Test your Spatial memory with this pattern matching game.
 
-## How to Play
+<img src="https://github.com/dennischen123/dennischen123.github.io/blob/master/assets/gamePic1.png" width="300px" height="400px">
+
+**[PlayNow](www.dennischen123.me)**
+
+## How to Play  
 **1.** Click start button to begin the game.
 
 **2.** Memorize Blocks that are revealed at the beggining of each round.
