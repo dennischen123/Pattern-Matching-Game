@@ -1,7 +1,4 @@
 //grid classes approach
-
-
-
 class Grid {
 	constructor(level){
 		this.currentCorrect = 0;
@@ -16,7 +13,6 @@ class Grid {
 		this.generatePattern()
 		this.fillGrid()
 		this.addEventListeners()
-		// generateUiGrid()
 
 		//for testing
 		// this.displayGrid()
@@ -43,8 +39,10 @@ class Grid {
 	}
 	//add event listeners to each block
 	addEventListeners() {
-		if (this.level === 0)
+		if (this.level === 0) {
 			document.querySelector('button').addEventListener('click', revealAndHide)
+		}
+
 	}
 
 	displayGrid() {
@@ -78,13 +76,13 @@ const generateUiGrid = () => {
 			}
 			table.appendChild(row)
 		}
-		// main.addClassList('trackin')
 		//auto reveal after first round
 		if (grid.level > 0) {
 			setTimeout(function () {
 				revealAndHide()
 			}, 1700)
-		}
+		// document.querySelector('table').style.opacity = "50%"
+		} else {document.querySelector('table').style.opacity = "50%"}
 	}
 
 // Correct Block or not Logic
@@ -109,7 +107,6 @@ const isCorrect = (event) => {
 //true or 1 = level up,   false or 0 = gameover
 const reset = (level, mode) => {
 	if (mode) {
-		// alert("Level up")
 		let header = document.querySelector('header')
 		document.querySelector('h2').remove()
 		header.appendChild(document.createElement('h2'))
@@ -117,9 +114,6 @@ const reset = (level, mode) => {
 		setTimeout(function (){;},1000)
 		grid = new Grid(level)
 		grid.setupGrid()
-
-		console.log(grid)
-		
 		document.querySelector('table').remove()
 		generateUiGrid()
 	}
@@ -142,15 +136,20 @@ const revealHidden = (mode) => {
 }
 
 const revealAndHide = () => {
+	document.querySelector('table').style.opacity = "100%"
+	if (document.querySelector('h3')){
+		document.querySelector('h3').remove()
+	}
 	revealHidden(1)
 	setTimeout(function() {
 		revealHidden(0)
 		document.querySelector('button').removeEventListener('click',revealAndHide)
-	}, 1500)
+	}, 1000)
 }
 
-
+//adds blinkings gameover animation and removing click eventlistener from grid
 const gameOver = () => {
+	document.querySelector('table').style.opacity = "50%"
 	let p = document.querySelector('p')
 	p.innerHTML = "Game Over"
 	p.setAttribute('class', 'blinking')
@@ -180,7 +179,7 @@ const addRemoveEventListeners = (mode, func, selector) => {
 		})
 	}
 }
-
+// starting the game
 let grid = new Grid(0)
 grid.setupGrid()
 generateUiGrid()
