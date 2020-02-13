@@ -24,6 +24,7 @@ h1 {
  	color: white;
  	font-size:40px;
  	text-shadow: 2px 2px #0a87ff;
+ 	letter-spacing: 2px;
 }
 
 h2 {
@@ -108,10 +109,9 @@ p {
 }
 
 
-/*table {
-	opacity: 50%;
-}
-*/
+
+
+
 
 /*@keyframes blinkingText{
     0%{top:0px; left:0px;font-size: 20px;color: red;  }
