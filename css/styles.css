@@ -38,11 +38,12 @@ h2 {
 
 h3 {
 	color: goldenrod;
+	font-size: 3.5vh;
 }
 
 span {
 	color: white;
-	font-size: 30px;
+	font-size: 3.7vh;
 }
 footer {
 	position: fixed;
