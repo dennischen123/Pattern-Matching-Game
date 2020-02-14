@@ -155,6 +155,12 @@ const gameOver = () => {
 	p.setAttribute('class', 'blinking')
 	p.style.fontSize = "30px"
 
+
+	// testing
+	revealHidden(1)
+
+	//testing
+
 	addRemoveEventListeners(0,isCorrect, 'td')
 	document.querySelector('button').addEventListener('click',function restart(){
 		reset(0,1)

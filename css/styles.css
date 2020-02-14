@@ -62,10 +62,10 @@ main {
 }
 
 p {
-	font-size: 20px;
+	font-size: 10vh;
 	position: absolute;
 	text-align: center;
-	top: %;
+	/*top: %;*/
 	left:0;
 	right:0;
 }
