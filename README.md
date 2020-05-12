@@ -7,7 +7,7 @@ Test your Spatial memory with this pattern matching game.
 
 <img src="https://github.com/dennischen123/dennischen123.github.io/blob/master/assets/gamePic1.png" width="300px" height="400px">
 
-**[PlayNow](http://dennischen123.me/)**
+**[PlayNow](https://dennischen123.github.io/Pattern-Matching-Game/)**
 
 ## How to Play  
 **1.** Click start button to begin the game.
